@@ -4,199 +4,154 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Julian Spohr</title>
-  <meta name="description" content="Visitenkarte – Julian Spohr" />
+  <meta name="description" content="Digitale Visitenkarte – Julian Laurin Spohr" />
 
   <style>
     :root{
-      --bg: #0b0d12;
+      --bg:#0b0d12;
       --panel: rgba(255,255,255,.06);
       --panel2: rgba(255,255,255,.10);
-      --line: rgba(255,255,255,.12);
+      --line: rgba(255,255,255,.14);
       --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.68);
-      --accent: #2f6bff;
-      --good: #20c997;
-      --r: 22px;
+      --muted: rgba(255,255,255,.70);
+      --accent:#2f6bff;
+      --r:22px;
       --shadow: 0 18px 70px rgba(0,0,0,.55);
       --max: 980px;
     }
-
-    *{ box-sizing: border-box; }
-    html, body { height: 100%; }
+    *{box-sizing:border-box}
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      color: var(--text);
+      color:var(--text);
       background:
-        radial-gradient(900px 650px at 18% 10%, rgba(47,107,255,.20), transparent 60%),
-        radial-gradient(900px 650px at 82% 18%, rgba(32,201,151,.14), transparent 55%),
-        radial-gradient(1000px 750px at 60% 90%, rgba(255,255,255,.06), transparent 55%),
+        radial-gradient(900px 650px at 18% 10%, rgba(47,107,255,.22), transparent 60%),
+        radial-gradient(900px 650px at 82% 18%, rgba(255,255,255,.07), transparent 55%),
+        radial-gradient(1000px 750px at 60% 90%, rgba(255,255,255,.05), transparent 55%),
         var(--bg);
+      min-height:100vh;
     }
-
-    a{ color: inherit; text-decoration: none; }
-    .wrap{ max-width: var(--max); margin: 0 auto; padding: 18px; }
-
-    /* Top bar */
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:18px}
     .top{
       position: sticky; top: 10px; z-index: 10;
-      display:flex; align-items:center; justify-content:space-between; gap: 12px; flex-wrap: wrap;
-      padding: 12px 14px;
-      border: 1px solid var(--line);
+      display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+      padding:12px 14px;
+      border:1px solid var(--line);
       background: rgba(11,13,18,.65);
       backdrop-filter: blur(10px);
       border-radius: var(--r);
       box-shadow: var(--shadow);
     }
-    .brand{
-      display:flex; align-items:center; gap: 10px;
-      min-width: 240px;
-    }
+    .brand{display:flex; align-items:center; gap:10px;}
     .avatar{
-      width: 44px; height: 44px;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,.18);
+      width:44px; height:44px; border-radius:16px;
+      border:1px solid rgba(255,255,255,.18);
       overflow:hidden;
       background: rgba(255,255,255,.06);
-      flex: 0 0 auto;
+      flex:0 0 auto;
     }
-    .avatar img{
-      width:100%; height:100%;
-      object-fit: cover;
-      display:block;
-      filter: contrast(1.03) saturate(1.02);
-    }
-    .brandTxt{ line-height: 1.15; }
-    .brandTxt b{ display:block; font-size: 14px; letter-spacing: .2px; }
-    .brandTxt span{ display:block; color: var(--muted); font-size: 12.5px; }
+    .avatar img{width:100%; height:100%; object-fit:cover; display:block}
+    .brandTxt{line-height:1.15}
+    .brandTxt b{display:block; font-size:14px; letter-spacing:.2px}
+    .brandTxt span{display:block; color:var(--muted); font-size:12.5px}
 
-    .lang{
-      display:flex; align-items:center; gap: 8px;
-    }
     .seg{
       display:inline-flex; align-items:center;
-      border: 1px solid var(--line);
+      border:1px solid var(--line);
       background: rgba(255,255,255,.05);
-      border-radius: 999px;
-      overflow:hidden;
+      border-radius:999px; overflow:hidden;
     }
     .seg button{
-      appearance: none; border: 0; background: transparent; color: var(--muted);
-      padding: 8px 10px; cursor: pointer;
-      font-weight: 600; font-size: 12.5px;
+      appearance:none; border:0; background:transparent;
+      color:var(--muted);
+      padding:8px 10px;
+      cursor:pointer;
+      font-weight:700; font-size:12.5px;
     }
     .seg button.active{
-      color: var(--text);
+      color:var(--text);
       background: rgba(255,255,255,.10);
     }
 
-    /* Layout */
     .grid{
       display:grid;
       grid-template-columns: 1.15fr .85fr;
-      gap: 14px;
-      margin-top: 14px;
+      gap:14px;
+      margin-top:14px;
     }
-    @media (max-width: 880px){
-      .grid{ grid-template-columns: 1fr; }
-    }
+    @media (max-width: 880px){ .grid{grid-template-columns: 1fr;} }
 
     .card{
-      border: 1px solid var(--line);
+      border:1px solid var(--line);
       background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.05));
       border-radius: var(--r);
       box-shadow: var(--shadow);
       overflow:hidden;
     }
-    .pad{ padding: 18px; }
-    .title{
-      margin: 0;
+    .pad{padding:18px}
+    h1{
+      margin:0;
       font-size: clamp(26px, 4.4vw, 42px);
-      line-height: 1.05;
-      letter-spacing: -0.7px;
+      line-height:1.05;
+      letter-spacing:-.7px;
     }
     .sub{
-      margin: 10px 0 0;
-      color: var(--muted);
-      font-size: 15.5px;
-      line-height: 1.55;
-      max-width: 62ch;
+      margin:10px 0 0;
+      color:var(--muted);
+      font-size:15.5px;
+      line-height:1.55;
+      max-width:62ch;
     }
-
-    .pills{
-      display:flex; gap: 8px; flex-wrap: wrap;
-      margin-top: 14px;
-    }
+    .pills{display:flex; gap:8px; flex-wrap:wrap; margin-top:14px}
     .pill{
-      display:inline-flex; align-items:center; gap: 8px;
-      padding: 8px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.14);
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
       background: rgba(255,255,255,.05);
-      color: var(--muted);
-      font-size: 12.5px;
+      color:var(--muted);
+      font-size:12.5px;
     }
     .dot{
-      width: 8px; height: 8px; border-radius: 999px;
-      background: var(--good);
-      box-shadow: 0 0 0 4px rgba(32,201,151,.16);
+      width:8px; height:8px; border-radius:999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px rgba(47,107,255,.18);
     }
 
-    /* Buttons */
-    .actions{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
-    }
+    .actions{display:grid; grid-template-columns: 1fr; gap:10px}
     @media (min-width: 520px) and (max-width: 880px){
-      .actions{ grid-template-columns: 1fr 1fr; }
+      .actions{grid-template-columns: 1fr 1fr;}
     }
     .btn{
-      display:flex; align-items:center; justify-content:space-between; gap: 10px;
-      padding: 12px 14px;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,.14);
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      padding:12px 14px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.14);
       background: rgba(255,255,255,.06);
       transition: transform .06s ease, background .15s ease, border-color .15s ease;
       cursor:pointer;
       user-select:none;
     }
-    .btn:hover{ background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.22); }
-    .btn:active{ transform: translateY(1px); }
-    .btn b{ font-size: 13.5px; }
-    .btn span{ color: var(--muted); font-size: 12.5px; overflow:hidden; text-overflow: ellipsis; white-space: nowrap; }
-    .btn .tag{
-      font-size: 12px;
-      color: rgba(255,255,255,.85);
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.14);
+    .btn:hover{background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.22);}
+    .btn:active{transform: translateY(1px);}
+    .btn b{font-size:13.5px}
+    .btn span{color:var(--muted); font-size:12.5px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+    .tag{
+      font-size:12px;
+      color: rgba(255,255,255,.88);
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
       background: rgba(0,0,0,.18);
     }
     .btn.primary{
       border-color: rgba(47,107,255,.45);
       background: linear-gradient(135deg, rgba(47,107,255,.28), rgba(255,255,255,.06));
     }
-
-    .small{
-      margin-top: 10px;
-      color: var(--muted);
-      font-size: 12.5px;
-      line-height: 1.45;
-    }
-
-    .footer{
-      margin-top: 14px;
-      padding: 14px 6px 28px;
-      color: var(--muted);
-      font-size: 12.5px;
-      text-align:center;
-    }
-
-    /* Language handling */
-    [data-lang]{ display:none; }
-    html[data-lang="de"] [data-lang="de"]{ display:block; }
-    html[data-lang="en"] [data-lang="en"]{ display:block; }
+    .small{margin-top:10px; color:var(--muted); font-size:12.5px; line-height:1.45}
+    .footer{margin-top:14px; padding:14px 6px 28px; color:var(--muted); font-size:12.5px; text-align:center}
+    code{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;}
   </style>
 </head>
 
@@ -205,54 +160,48 @@
     <header class="top">
       <div class="brand">
         <div class="avatar" title="Foto">
-          <!-- Lade das Foto als 'julian.jpg' ins Repo hoch -->
-          <img src="julian.jpg" alt="Julian Spohr Portrait" />
+          <!-- Bilddatei im Repo: julian.jpg -->
+          <img src="julian.jpg" alt="Julian Spohr Portrait">
         </div>
         <div class="brandTxt">
-          <b>Julian Spohr</b>
-          <span data-lang="de">Schüler · Feodor-Lynen-Gymnasium</span>
-          <span data-lang="en">Student · Feodor-Lynen-Gymnasium</span>
+          <b id="nameTop">Julian Spohr</b>
+          <span id="roleTop">Schüler · Feodor-Lynen-Gymnasium</span>
         </div>
       </div>
 
-      <div class="lang" aria-label="Sprache">
-        <div class="seg" role="tablist" aria-label="Language">
-          <button id="btnDE" class="active" type="button" aria-selected="true">DE</button>
-          <button id="btnEN" type="button" aria-selected="false">EN</button>
-        </div>
+      <div class="seg" aria-label="Language">
+        <button id="btnDE" class="active" type="button">DE</button>
+        <button id="btnEN" type="button">EN</button>
       </div>
     </header>
 
     <main class="grid">
-      <!-- Left: Intro -->
       <section class="card">
         <div class="pad">
-          <h1 class="title">Julian Laurin Spohr</h1>
-
-          <p class="sub" data-lang="de">
+          <h1 id="title">Julian Laurin Spohr</h1>
+          <p class="sub" id="intro">
             Schüler am Feodor-Lynen-Gymnasium. Diese Seite dient als kompakte, seriöse Online-Visitenkarte
             für Kontakt und Vernetzung.
           </p>
-          <p class="sub" data-lang="en">
-            Student at Feodor-Lynen-Gymnasium. This page serves as a concise, professional digital
-            business card for contact and networking.
-          </p>
 
           <div class="pills">
-            <span class="pill"><span class="dot"></span><span data-lang="de">Aktuell erreichbar</span><span data-lang="en">Currently available</span></span>
-            <span class="pill"><span data-lang="de">Deutsch / Englisch</span><span data-lang="en">German / English</span></span>
-            <span class="pill"><span data-lang="de">Mobile-first</span><span data-lang="en">Mobile-first</span></span>
+            <span class="pill"><span class="dot"></span><span id="pill1">Erreichbar</span></span>
+            <span class="pill"><span id="pill2">Deutsch / Englisch</span></span>
+            <span class="pill"><span id="pill3">Mobile-first</span></span>
           </div>
+
+          <p class="small" id="note">
+            Tipp: Sprache oben rechts umschalten. Kontakt-Buttons öffnen deine Standard-Apps.
+          </p>
         </div>
       </section>
 
-      <!-- Right: Contact -->
       <aside class="card">
         <div class="pad">
-          <div class="actions" aria-label="Kontaktmöglichkeiten">
+          <div class="actions">
             <a class="btn primary" href="mailto:jul.spohr@postbox.de">
               <div>
-                <b>E-Mail</b>
+                <b id="mailLabel">E-Mail</b>
                 <div><span>jul.spohr@postbox.de</span></div>
               </div>
               <div class="tag">Mail</div>
@@ -260,10 +209,10 @@
 
             <a class="btn" href="tel:+4917643879626">
               <div>
-                <b data-lang="de">Telefon</b><b data-lang="en">Phone</b>
+                <b id="phoneLabel">Telefon</b>
                 <div><span>+49 176 43879626</span></div>
               </div>
-              <div class="tag">Call</div>
+              <div class="tag" id="callTag">Call</div>
             </a>
 
             <a class="btn" href="https://instagram.com/jul.spo_" target="_blank" rel="noopener">
@@ -276,54 +225,96 @@
 
             <button class="btn" id="vcardBtn" type="button">
               <div>
-                <b data-lang="de">Kontakt speichern</b><b data-lang="en">Save contact</b>
-                <div><span data-lang="de">vCard (.vcf) herunterladen</span><span data-lang="en">Download vCard (.vcf)</span></div>
+                <b id="saveLabel">Kontakt speichern</b>
+                <div><span id="saveSub">vCard (.vcf) herunterladen</span></div>
               </div>
               <div class="tag">vCard</div>
             </button>
           </div>
 
-          <div class="small" data-lang="de">
-            Hinweis: Links öffnen die Standard-Apps (Mail/Telefon). Instagram öffnet ein neues Tab.
-          </div>
-          <div class="small" data-lang="en">
-            Note: Links open your default apps (Mail/Phone). Instagram opens in a new tab.
-          </div>
+          <p class="small" id="legal">
+            Hinweis: Diese Seite speichert keine Daten. Die vCard wird lokal heruntergeladen.
+          </p>
         </div>
       </aside>
     </main>
 
     <footer class="footer">
-      <span data-lang="de">© <span id="year"></span> Julian Spohr · Digitale Visitenkarte</span>
-      <span data-lang="en">© <span id="year2"></span> Julian Spohr · Digital business card</span>
+      © <span id="year"></span> Julian Spohr · Digitale Visitenkarte
     </footer>
   </div>
 
   <script>
-    // Year
-    const y = new Date().getFullYear();
-    document.getElementById("year").textContent = y;
-    document.getElementById("year2").textContent = y;
+    // year
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Language toggle
-    const root = document.documentElement;
+    // language texts (no hiding, just replace text)
+    const T = {
+      de: {
+        roleTop: "Schüler · Feodor-Lynen-Gymnasium",
+        intro: "Schüler am Feodor-Lynen-Gymnasium. Diese Seite dient als kompakte, seriöse Online-Visitenkarte für Kontakt und Vernetzung.",
+        pill1: "Erreichbar",
+        pill2: "Deutsch / Englisch",
+        pill3: "Mobile-first",
+        note: "Tipp: Sprache oben rechts umschalten. Kontakt-Buttons öffnen deine Standard-Apps.",
+        mailLabel: "E-Mail",
+        phoneLabel: "Telefon",
+        callTag: "Call",
+        saveLabel: "Kontakt speichern",
+        saveSub: "vCard (.vcf) herunterladen",
+        legal: "Hinweis: Diese Seite speichert keine Daten. Die vCard wird lokal heruntergeladen.",
+        footer: "Digitale Visitenkarte"
+      },
+      en: {
+        roleTop: "Student · Feodor-Lynen-Gymnasium",
+        intro: "Student at Feodor-Lynen-Gymnasium. This page is a concise, professional digital business card for contact and networking.",
+        pill1: "Available",
+        pill2: "German / English",
+        pill3: "Mobile-first",
+        note: "Tip: Switch language at the top right. Contact buttons open your default apps.",
+        mailLabel: "Email",
+        phoneLabel: "Phone",
+        callTag: "Call",
+        saveLabel: "Save contact",
+        saveSub: "Download vCard (.vcf)",
+        legal: "Note: This page does not store data. The vCard is downloaded locally.",
+        footer: "Digital business card"
+      }
+    };
+
     const btnDE = document.getElementById("btnDE");
     const btnEN = document.getElementById("btnEN");
 
-    function setLang(lang){
-      root.setAttribute("data-lang", lang);
-      root.setAttribute("lang", lang === "de" ? "de" : "en");
+    function applyLang(lang){
+      const t = T[lang];
+      document.documentElement.lang = lang === "de" ? "de" : "en";
+
+      document.getElementById("roleTop").textContent = t.roleTop;
+      document.getElementById("intro").textContent = t.intro;
+      document.getElementById("pill1").textContent = t.pill1;
+      document.getElementById("pill2").textContent = t.pill2;
+      document.getElementById("pill3").textContent = t.pill3;
+      document.getElementById("note").textContent = t.note;
+      document.getElementById("mailLabel").textContent = t.mailLabel;
+      document.getElementById("phoneLabel").textContent = t.phoneLabel;
+      document.getElementById("callTag").textContent = t.callTag;
+      document.getElementById("saveLabel").textContent = t.saveLabel;
+      document.getElementById("saveSub").textContent = t.saveSub;
+      document.getElementById("legal").textContent = t.legal;
+
+      document.querySelector(".footer").innerHTML =
+        `© ${new Date().getFullYear()} Julian Spohr · ${t.footer}`;
+
       btnDE.classList.toggle("active", lang === "de");
       btnEN.classList.toggle("active", lang === "en");
-      btnDE.setAttribute("aria-selected", lang === "de" ? "true" : "false");
-      btnEN.setAttribute("aria-selected", lang === "en" ? "true" : "false");
-      try{ localStorage.setItem("julian_lang", lang); } catch(e){}
+
+      try { localStorage.setItem("julian_lang2", lang); } catch(e){}
     }
 
-    const saved = (() => { try { return localStorage.getItem("julian_lang"); } catch(e){ return null; } })();
-    setLang(saved === "en" ? "en" : "de");
-    btnDE.addEventListener("click", () => setLang("de"));
-    btnEN.addEventListener("click", () => setLang("en"));
+    const saved = (() => { try { return localStorage.getItem("julian_lang2"); } catch(e){ return null; } })();
+    applyLang(saved === "en" ? "en" : "de");
+    btnDE.addEventListener("click", () => applyLang("de"));
+    btnEN.addEventListener("click", () => applyLang("en"));
 
     // vCard download
     document.getElementById("vcardBtn").addEventListener("click", () => {
